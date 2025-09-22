@@ -48,7 +48,7 @@ Proyek ini adalah aplikasi berbasis website yang dibuat untuk mendukung komunika
 
 ## 🔑 Konfigurasi Environment
 
-Buat file `.streamlit/secrets.toml` atau tambahkan ke Hugging Face Secrets:
+Buat file `.streamlit/secrets.toml`:
 
 ```toml
 SUPABASE_URL = "https://xxxxx.supabase.co"
