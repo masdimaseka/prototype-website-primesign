@@ -1,0 +1,6 @@
+streamlit 
+ultralytics
+opencv-python-headless
+supabase
+st-supabase-connection
+gotrue
