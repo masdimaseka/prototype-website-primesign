@@ -51,7 +51,6 @@ Proyek ini adalah aplikasi berbasis website yang dibuat untuk mendukung komunika
 Buat file `.streamlit/secrets.toml` atau tambahkan ke Hugging Face Secrets:
 
 ```toml
-[connections.supabase]
 SUPABASE_URL = "https://xxxxx.supabase.co"
 SUPABASE_KEY = "xxxxx"
 bucket_name = "hasil_deteksi"
