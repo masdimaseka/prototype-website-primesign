@@ -59,18 +59,6 @@ bucket_name_jobs = "jobs"
 bucket_name_courses = "thumbnail_course"
 ```
 
-## 📂 Struktur Direktori
 
-│
-├── pages/ # Halaman Streamlit
-├── modules/ # Modul custom (auth, supabase, dsb.)
-├── lib/ # Utility & koneksi DB
-├── app.py # Entry point
-├── requirements.txt
-├── README.md
-└── .streamlit/
-└── secrets.toml
 
-```
 Made by PrimeSign Team
-```
