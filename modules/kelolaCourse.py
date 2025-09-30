@@ -6,14 +6,14 @@ from lib.supabase.courses import update_courses
 from lib.supabase.storage import delete_from_supabase, upload_to_supabase
 
 @st.dialog(title="Detail Pelatihan", width="large")
-def show_detail_course(link_video, title, description, user):
+def show_detail_course(link_video, title, description, data_user):
     st.markdown(
         f'<iframe width="100%" height="500" src="{link_video}"  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
         unsafe_allow_html=True
     )   
     st.header(title)
     
-    st.markdown(f'Posted by **{user.user.user_metadata.get("display_name", "-")}**')
+    st.markdown(f'Posted by **{data_user.get("name")}**')
     
     st.divider()
     st.header("Deskripsi Pelatihan")

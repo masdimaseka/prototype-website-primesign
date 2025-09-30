@@ -16,7 +16,7 @@ if not user or not user.user:
     st.stop()
 
 st.title("Unggah Video Pelatihan Baru")
-st.text("Silakan isi detail pealtihan di bawah ini.")
+st.text("Silakan isi detail pelatihan di bawah ini.")
 
 with st.form("job_upload_form", clear_on_submit=False):
 

@@ -4,6 +4,8 @@ from zoneinfo import ZoneInfo
 
 from lib.supabase.connection import get_conn, get_session_and_user
 from lib.supabase.courses import fetch_all_courses
+from lib.supabase.profile_recruiter import fetch_profile_recruiter_by_id
+from lib.supabase.profile import fetch_profile_by_id
 from modules.kelolaCourse import show_detail_course
 
 conn = get_conn()
@@ -67,8 +69,14 @@ else:
                             formatted_time = "Waktu tidak valid"
                         st.caption(f"{formatted_time}")
 
-                        if user and user.user:
-                            st.markdown(f'Posted by **{user.user.user_metadata.get("display_name", "-")}**')
+
+                        data_user, error = fetch_profile_by_id(conn, course.get("user_id"))
+
+                        if data_user is None:
+                            data_user, error = fetch_profile_recruiter_by_id(conn, course.get("user_id"))
+
+
+                        st.markdown(f'Posted by **{data_user.get("name")}**')
 
                         st.divider()
 
@@ -79,7 +87,7 @@ else:
                             if not user:
                                     no_access_dialog()
                             else:
-                                show_detail_course(link_video, title, description, user)
+                                show_detail_course(link_video, title, description, data_user)
                 
                     st.write("") 
 
@@ -105,8 +113,14 @@ else:
                             formatted_time = "Waktu tidak valid"
                         st.caption(f"{formatted_time}")
 
-                        if user and user.user:
-                            st.markdown(f'Posted by **{user.user.user_metadata.get("display_name", "-")}**')
+                        
+                        data_user, error = fetch_profile_by_id(conn, course.get("user_id"))
+
+                        if data_user is None:
+                            data_user, error = fetch_profile_recruiter_by_id(conn, course.get("user_id"))
+
+
+                        st.markdown(f'Posted by **{data_user.get("name")}**')
 
                         st.divider()
 
@@ -117,7 +131,7 @@ else:
                             if not user:
                                     no_access_dialog()
                             else:
-                                show_detail_course(link_video, title, description, user)
+                                show_detail_course(link_video, title, description, data_user)
                 
                     st.write("")
                     

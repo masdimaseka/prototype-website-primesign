@@ -3,6 +3,7 @@ import streamlit as st
 from lib.supabase.connection import get_conn, get_session_and_user
 from lib.supabase.jobs import fetch_all_jobs
 from lib.supabase.profile_recruiter import fetch_profile_recruiter_by_id
+from lib.supabase.profile import fetch_profile_by_id
 from modules.kelolaJob import show_detail_job
 
 conn = get_conn()
@@ -66,10 +67,10 @@ else:
                             st.badge(location, color="green")
 
                         data_recruiter, error = fetch_profile_recruiter_by_id(conn, job.get("recruiter_id"))
-                        if error:
-                            st.error("Gagal memuat profil recruiter.")
-                        elif data_recruiter:
-                            st.markdown(f'Posted by **{data_recruiter.get("name")}**, **{data_recruiter.get("position")}**, **{data_recruiter.get("company_name")}**')
+                        if data_recruiter is None:
+                            data_recruiter, error = fetch_profile_by_id(conn, job.get("recruiter_id"))
+
+                        st.markdown(f'Posted by **{data_recruiter.get("name")}**, **{data_recruiter.get("position")}**, **{data_recruiter.get("company_name")}**')
 
                         st.divider()
 
@@ -108,10 +109,10 @@ else:
                             st.badge(location, color="green")
 
                         data_recruiter, error = fetch_profile_recruiter_by_id(conn, job.get("recruiter_id"))
-                        if error:
-                            st.error("Gagal memuat profil recruiter.")
-                        elif data_recruiter:
-                            st.markdown(f'Posted by **{data_recruiter.get("name")}**, **{data_recruiter.get("position")}**, **{data_recruiter.get("company_name")}**')
+                        if data_recruiter is None:
+                            data_recruiter, error = fetch_profile_by_id(conn, job.get("recruiter_id"))
+
+                        st.markdown(f'Posted by **{data_recruiter.get("name")}**, **{data_recruiter.get("position")}**, **{data_recruiter.get("company_name")}**')
 
                         st.divider()
 

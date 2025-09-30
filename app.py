@@ -30,7 +30,7 @@ pages = {
     ],
 
     "Pelatihan" : [
-        st.Page("pages/pelatihan/list-pelatihan.py", title="Daftar Pelatian", icon="🎓")
+        st.Page("pages/pelatihan/list-pelatihan.py", title="Daftar Pelatihan", icon="🎓")
     ]
 }
 
