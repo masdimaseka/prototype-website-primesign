@@ -2,3 +2,5 @@
 .vscode
 secrets.toml
 weights/*
+__pycache__
+*.pyc

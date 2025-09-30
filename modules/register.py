@@ -1,7 +1,7 @@
 import streamlit as st
 from st_supabase_connection import SupabaseConnection
 
-def register_user(conn: SupabaseConnection, r_email, r_pass, r_pass2, r_display_name, r_phone ):
+def register_user(conn: SupabaseConnection, r_email, r_pass, r_pass2, r_display_name, r_phone):
     if not r_email or not r_pass or not r_pass2 or not r_display_name or not r_phone:
         st.warning("Semua kolom wajib diisi.")
     elif r_pass != r_pass2:
@@ -22,13 +22,13 @@ def register_user(conn: SupabaseConnection, r_email, r_pass, r_pass2, r_display_
                 }
             })
 
+            st.success("Registrasi berhasil! Silakan cek email Anda untuk melakukan verifikasi sebelum login.")
         except Exception as e:
             st.error(f"Gagal daftar: {e}")
             return
-        
 
 
-def register_recruiter(conn: SupabaseConnection, r_company_name, r_company_add, r_company_desc,  r_email, r_pass, r_pass2, r_display_name, r_phone, r_company_u_poss):
+def register_recruiter(conn: SupabaseConnection, r_company_name, r_company_add, r_company_desc, r_email, r_pass, r_pass2, r_display_name, r_phone, r_company_u_poss):
     if not r_email or not r_pass or not r_pass2 or not r_display_name or not r_phone or not r_company_name or not r_company_add or not r_company_desc or not r_company_u_poss:
         st.warning("Semua kolom wajib diisi.")
     elif r_pass != r_pass2:
@@ -53,7 +53,7 @@ def register_recruiter(conn: SupabaseConnection, r_company_name, r_company_add, 
                 }
             })
 
+            st.success("Registrasi berhasil! Silakan cek email Anda untuk melakukan verifikasi sebelum login.")
         except Exception as e:
             st.error(f"Gagal daftar: {e}")
             return
-        
